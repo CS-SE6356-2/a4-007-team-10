@@ -3,28 +3,31 @@ import java.util.*;
 public class ShoppingCart {
 	
 	private ArrayList items;
+	private double balance = 0.0;
 	
 	public ShoppingCart() {
 		items = new ArrayList();
 	}
 	
 	public double getBalance() {
-		double balance = 0.00;
-		for (Iterator i = items.iterator(); i.hasNext();){
-			Product item = (Product)i.next();
-			balance += item.getPrice();
-		}
 		return balance;
 	}
 	
 	public void addItem(Product item) {
 		items.add(item);
+		balance += item.getPrice();
 	}
 	
 	public void removeItem(Product item)
 			throws ProductNotFoundException {
-		if (!items.remove(item)) {
-			throw new ProductNotFoundException();}
+		int index = items.indexOf(item);
+		
+		if (index == -1) {
+			throw new ProductNotFoundException();
+		}
+		
+		balance -= item.getPrice();
+		items.remove(index);
 	}
 	
 	public int getItemCount() {
