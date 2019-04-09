@@ -9,12 +9,10 @@ class TestRunner {
 	public static void main(String[] args) {
 		//Test ShoppingCart
 		Result SCresult = JUnitCore.runClasses(ShoppingCartTest.class);
-		for(Failure failure : result.getFailures()) {
 		for(Failure failure : SCresult.getFailures()) {
 			System.out.println(failure.toString());
 		}
 
-		System.out.println(result.wasSuccessful());
 		System.out.println(SCresult.wasSuccessful());
 
 		//Test Product
