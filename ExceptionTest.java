@@ -4,7 +4,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.jupiter.api.Test;
 
-// when item not in cart is removed
+// test 6 : when item not in cart is removed
 class ExceptionTest {
 
 
@@ -17,7 +17,7 @@ class ExceptionTest {
 			Product testItem2=new Product("test2", 22.00);
 			testCart.addItem(testItem2);
 			
-			//attempt removal of item no inside cart
+			//attempt removal of item not inside cart
 			try {
 				cart.removeItem(testItem);
 				fail();
